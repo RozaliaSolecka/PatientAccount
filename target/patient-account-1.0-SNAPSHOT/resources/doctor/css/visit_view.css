@@ -1,0 +1,29 @@
+.visit__grid {
+    display: grid;
+    grid-template-columns: 350px 350px 350px 350px;
+}
+
+.visit__id {
+    grid-column: 1;
+    grid-row: 1;
+}
+.visit__date {
+    grid-column: 1;
+    grid-row: 2;
+}
+.visit__hour {
+    grid-column: 1;
+    grid-row: 3;
+}
+.visit__time {
+    grid-column: 1;
+    grid-row: 4;
+}
+.visit__consultation {
+    grid-column: 1;
+    grid-row: 5;
+}
+.visit__treatment {
+    grid-column: 1;
+    grid-row: 6;
+}

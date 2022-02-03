@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <ui:define name="content">
+        <h:outputStylesheet library="doctor" name="css/visit_create.css"/><!-- Automatically relocated to head. -->
+
+        <article class="text--justified">
+            <header><h2>Create visit</h2></header>
+            <h:form class="visit__form">
+
+                <h:outputLabel for="date" value="Date:"/>
+                <h:inputText class="ui-control ui-input" id="date" value="#{visitCreate.visitCreateModel.date}"/>
+
+                <h:outputLabel for="hour" value="Hour:"/>
+                <h:inputText class="ui-control ui-input" id="hour" value="#{visitCreate.visitCreateModel.hour}"/>
+
+                <h:outputLabel for="time" value="Time:"/>
+                <h:inputTextarea class="ui-control" id="time" value="#{visitCreate.visitCreateModel.time}"/>
+
+                <h:outputLabel for="consultation" value="Consultation:"/>
+                <h:inputTextarea class="ui-control" id="consultation" value="#{visitCreate.visitCreateModel.consultation}"/>
+
+                <h:outputLabel for="treatment" value="Treatment:"/>
+                <h:inputTextarea class="ui-control" id="treatment" value="#{visitCreate.visitCreateModel.treatment}"/>
+
+                <h:outputLabel for="doctor" value="Doctor:"/>
+                <h:selectOneRadio id="doctor" value="#{visitCreate.visitCreateModel.doctorModel}"
+                                  layout="pageDirection">
+                    <f:selectItems var="doctor" value="#{visitCreate.doctors}" itemValue="#{doctor}"
+                                   itemLabel="#{doctor.name} #{doctor.surname}" itemLabelEscaped="false"/>
+                </h:selectOneRadio>
+
+                <h:commandButton class="ui-control ui-button" value="Cancel" immediate="true"
+                                 action="#{visitCreate.cancelAction()}"/>
+                <h:commandButton class="ui-control ui-button" value="Save"
+                                 action="#{visitCreate.saveAction()}"/>
+            </h:form>
+        </article>
+
+    </ui:define>
+
+</ui:composition>

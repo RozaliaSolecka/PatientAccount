@@ -1,0 +1,5 @@
+.visit__form {
+    display: grid;
+    grid-template-columns: 100px 350px;
+    grid-gap: 10px;
+}

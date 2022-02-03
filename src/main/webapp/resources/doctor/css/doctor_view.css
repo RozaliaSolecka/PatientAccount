@@ -1,0 +1,22 @@
+.character__grid {
+    display: grid;
+    grid-template-columns: 100px 100px 100px 350px;
+}
+
+.doctor__specialisation {
+    grid-column: 1;
+    grid-row: 1;
+}
+.doctor__id {
+    grid-column: 1;
+    grid-row: 2;
+}
+.doctor__stars {
+    grid-column: 1;
+    grid-row: 3;
+}
+.doctor__registrar {
+    grid-column: 1;
+    grid-row: 4;
+}
+

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="id" value="#{visitView.id}" required="true"/>
+        <f:viewAction action="#{visitView.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h:outputStylesheet library="doctor" name="css/visit_view.css"/><!-- Automatically relocated to head. -->
+
+        <article class="text--justified">
+            <header>
+                <h2>Identifier: <h:outputText value="#{visitView.visit.id} "/></h2>
+            </header>
+            <div class="visit__grid">
+                <div class="visit__date">
+                    Date: <h:outputText value="#{visitView.visit.date}"/>
+                </div>
+                <div class="visit__hour">
+                    Hour: <h:outputText value="#{visitView.visit.hour}"/>
+                </div>
+                <div class="visit__time">
+                    Time: <h:outputText value="#{visitView.visit.time}"/> h
+                </div>
+                <div class="visit__consultation">
+                    Consultation: <h:outputText value="#{visitView.visit.consultation}"/>
+                </div>
+                <div class="visit__treatment">
+                    Treatment: <h:outputText value="#{visitView.visit.treatment}"/>
+                </div>
+            </div>
+
+        </article>
+    </ui:define>
+
+</ui:composition>

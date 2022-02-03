@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="/WEB-INF/template/main.xhtml">
+
+    <f:metadata>
+        <f:viewParam name="surname" value="#{doctorView.surname}" required="true"/>
+        <f:viewAction action="#{doctorView.init()}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <h:outputStylesheet library="doctor" name="css/doctor_view.css"/><!-- Automatically relocated to head. -->
+
+        <article class="text--justified">
+            <header>
+                <h2><h:outputText value="#{doctorView.doctor.name} "/>
+                <h:outputText value="#{doctorView.doctor.surname}"/></h2>
+            </header>
+            <div class="doctor__grid">
+                <div class="doctor__specialisation">
+                    Specialisation: <h:outputText value="#{doctorView.doctor.specialisation}"/>
+                </div>
+                <div class="doctor__id">
+                    Id: <h:outputText value="#{doctorView.doctor.surname}"/>
+                </div>
+                <div class="doctor__stars">
+                    Stars: <h:outputText value="#{doctorView.doctor.stars}"/>
+                </div>
+                <div class="doctor__registrar">
+                    Registrar: <h:outputText value="#{doctorView.doctor.registrar}"/>
+                </div>
+            </div>
+            <header><h3>Visits</h3></header>
+            <h:dataTable value="#{doctorView.visits.visits}" var="visit" styleClass="data-table">
+                <h:column>
+                    <f:facet name="header">id</f:facet>
+                    <h:outputText value="#{visit.id}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">view</f:facet>
+                    <h:link outcome="/doctor/visit_view.xhtml" value="view">
+                        <f:param name="id" value="#{visit.id}"/>
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">edit</f:facet>
+                    <h:link outcome="/doctor/visit_edit.xhtml" value="edit">
+                        <f:param name="id" value="#{visit.id}"/>
+                    </h:link>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">delete</f:facet>
+                    <h:form>
+                        <h:commandButton styleClass="ui-button ui-control" value="delete"
+                                         action="#{doctorView.deleteAction(visit.id)}"/>
+                    </h:form>
+                </h:column>
+                <f:facet name="footer">
+
+                </f:facet>
+            </h:dataTable>
+        </article>
+    </ui:define>
+
+</ui:composition>

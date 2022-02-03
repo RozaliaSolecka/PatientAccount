@@ -1,0 +1,106 @@
+import com.example.patientaccount.Specialisation;
+###
+GET http://localhost:9080/patient-account/api/users/kevin
+
+###
+GET http://localhost:9080/patient-account/api/users
+
+###
+PUT http://localhost:9080/patient-account/api/portraits/1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="portrait"; filename="4.png'
+
+< D:/Rozalia/semestr_7/JEE/avatars/4.png
+--boundary
+
+###
+POST http://localhost:9080/patient-account/api/portraits/1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="portrait"; filename="2.png'
+
+< D:/Rozalia/semestr_7/JEE/avatars/2.png
+--boundary
+
+###
+DELETE http://localhost:9080/patient-account/api/portraits/3
+
+###
+GET http://localhost:9080/patient-account/api/portraits/2
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+
+
+
+
+
+
+###
+GET http://localhost:9080/patient-account/api/doctors
+
+###
+GET http://localhost:9080/patient-account/api/doctors/Pdoct
+
+###
+POST http://localhost:9080/patient-account/api/doctors
+Content-Type: application/json
+
+{
+  "name": "Katie",
+  "surname": "Kdoctorist",
+  "specialisation": "PAEDIATRICIAN",
+  "stars": 3.5,
+  "registrar": false
+}
+
+###
+DELETE http://localhost:9080/patient-account/api/doctors/Pdoct
+
+###
+PUT http://localhost:9080/patient-account/api/doctors/Pdoct
+Content-Type: application/json
+Authorization: Basic a2V2aW46dXNlcnVzZXI=
+
+{
+  "specialisation": "SURGEON",
+  "stars": 6.0,
+  "registrar": true
+}
+
+###
+GET http://localhost:9080/patient-account/api/doctors/Pdoct/visits
+
+###
+GET http://localhost:9080/patient-account/api/doctors/Pdoct/visits/1
+
+###
+POST http://localhost:9080/patient-account/api/doctors/Pdoct/visits
+Content-Type: application/json
+
+{
+  "date": "01-01-2021",
+  "hour": "11:00",
+  "time": 1,
+  "consultation": false,
+  "treatment": true
+}
+
+
+###
+PUT http://localhost:9080/patient-account/api/doctors/Pdoct/visits/1
+Content-Type: application/json
+
+{
+  "date": "01-02-2023",
+  "hour": "17:00",
+  "time": 3,
+  "consultation": false,
+  "treatment": true
+}
+
+###
+DELETE http://localhost:9080/patient-account/api/doctors/Pdoct/visits/1
+
